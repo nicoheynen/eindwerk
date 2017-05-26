@@ -1,0 +1,18 @@
+<form class="form-style-9 ">
+    <ul>
+        <li>
+            TVA %:
+            <input type="number" name="taxPercent" class="field-style field-full align-none " [(ngModel)]="generalInfo.taxPercent" placeholder="TVA %"></li>
+
+        <li> Date: <input type="text" name="date" class="field-style field-full align-none " [(ngModel)]="generalInfo.date" placeholder="Date">
+        </li>
+        <li> Référence: <input type="text" name="reference" class="field-style field-full align-none " [(ngModel)]="generalInfo.reference" placeholder="Référence">
+        </li>
+        <li>But du devis:
+            <textarea name="offerGoal" autosize [(ngModel)]="generalInfo.offerGoal" class="field-style field-full align-none " placeholder="But du devis"> </textarea></li>
+
+        <li>
+            <textarea name="notice " autosize class="field-style " [(ngModel)]="generalInfo.notice " placeholder="Notice "> </textarea>
+        </li>
+    </ul>
+</form>

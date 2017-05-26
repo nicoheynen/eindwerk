@@ -1,0 +1,11 @@
+<nav class="no-print">
+
+    <a routerLink="/userCompanyInfo" routerLinkActive="active">Mes données</a>
+    <a routerLink="/clientInfo" routerLinkActive="active">Données du client</a>
+    <a routerLink="/products" routerLinkActive="active">Désignation</a>
+    <a [routerLink]="['/generalOfferInfo']" routerLinkActive="active">Info general</a>
+    <a [routerLink]="['/offer']" routerLinkActive="active">Aperçu du devis</a>
+
+</nav>
+
+<router-outlet></router-outlet>

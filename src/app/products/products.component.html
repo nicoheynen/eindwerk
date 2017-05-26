@@ -1,0 +1,20 @@
+<form class="form-style-9 ">
+    <ul>
+
+        <li>
+            <input type="radio" name="flatRate" (click)="toggleQtyOff()">Forfait
+            <input type="radio" name="flatRate" (click)="toggleQtyOn()" checked>Pas de forfait</li>
+        <li *ngIf="hideQty">Quantité:
+            <input type="text" name="productQuantity" class="field-style field-full align-none " [(ngModel)]="products.productQuantity">
+        </li>
+        <li *ngIf="hideQty">Unité: <input type="text" name="unitType" class="field-style field-full align-none " [(ngModel)]="products.unitType"> </li>
+        <li>Prix unitaire HT:
+            <input type="text" name="unitPrice" class="field-style field-full align-none " [(ngModel)]="products.unitPrice"></li>
+        <li>
+            Désignation:
+            <textarea autosize name="productDescription" class="field-style field-full align-none " [(ngModel)]="products.productDescription" placeholder="Désignation"></textarea></li>
+        <li>
+            <button (click)="addProduct()">Ajouter</button>
+        </li>
+    </ul>
+</form>

@@ -1,0 +1,26 @@
+<form class="form-style-9">
+    <ul>
+
+        <li>Logo:<input type="file" class="field-style field-full align-none " imageUpload (imageSelected)="selected($event)"></li>
+
+        <li><input type="text" name="companyName" class="field-style field-full align-none " [(ngModel)]="userCompanyInfo.companyName" placeholder="Nom"></li>
+
+        <li>
+            <input type="text" name="streetName" class="field-style field-split align-left " [(ngModel)]="userCompanyInfo.streetName" placeholder="Rue">
+            <input type="text" name="houseNumber" class="field-style field-split align-right " [(ngModel)]="userCompanyInfo.houseNumber" placeholder="N°">
+        </li>
+        <li>
+            <input type="text" name="postalCode" class="field-style field-split align-left " [(ngModel)]="userCompanyInfo.postalCode" placeholder="Code postal">
+            <input type="text" name="city" class="field-style field-split align-right " [(ngModel)]="userCompanyInfo.city" placeholder="Commune">
+        </li>
+        <li>
+            <input type="text" name="phoneNumber" class="field-style field-split align-left " [(ngModel)]="userCompanyInfo.phoneNumber" placeholder="N° de téléphone">
+            <input type="email" name="mail" class="field-style field-split align-right " [(ngModel)]="userCompanyInfo.mail" placeholder="Adresse e-mail">
+        </li>
+        <li>
+            <input type="text" name="iban" class="field-style field-split align-left " [(ngModel)]="userCompanyInfo.iban" placeholder="IBAN">
+            <input type="text" name="vat" class="field-style field-split align-right " [(ngModel)]="userCompanyInfo.vat" placeholder="TVA">
+        </li>
+
+    </ul>
+</form>
