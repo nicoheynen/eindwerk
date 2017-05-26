@@ -1,6 +1,6 @@
 import { EindwerkPage } from './app.po';
 
-describe('eindwerk App', () => {
+describe('eindwerk App', function() {
   let page: EindwerkPage;
 
   beforeEach(() => {
