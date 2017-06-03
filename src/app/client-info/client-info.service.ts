@@ -32,12 +32,17 @@ tvaClient: any): Observable<ClientInfo> {
                     .catch(this.handleError);
   }
 
-  delete(id: number): Observable<ClientInfo[]> {
-        var headers = new Headers();  
-        headers.append('Content-Type', 'application/json; charset=utf-8');  
-    return this.http.delete(this.clientInfoUrl+'ClientInfo/' + id)
-      .map(clientInfo=>clientInfo.json())
-      .catch(this.handleError);
+ // delete(id: number): Observable<ClientInfo> {
+   //     var headers = new Headers();  
+     //   headers.append('Content-Type', 'application/json; charset=utf-8');  
+    //return this.http.delete(this.clientInfoUrl+'ClientInfo/' + id, { headers: headers })
+    //  .map(clientInfo=>clientInfo.json())
+     // .catch(this.handleError);
+  //}
+  delete(id) {
+    return this.http.delete(this.clientInfoUrl+'ClientInfo/' + id, id)
+                        .map(clientInfo=>clientInfo.json())
+                    .catch(this.handleError);;
   }
 
 

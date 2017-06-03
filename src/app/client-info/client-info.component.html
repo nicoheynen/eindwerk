@@ -37,9 +37,9 @@
 <div class="form-style-9 ">
 
     <tr class="clientInfoList" *ngFor="let clientInfos of clientInfo">
-        <td>{{clientInfos.ClientNumber}}</td>
-        <td>{{clientInfos.ClientName}}</td>
-        <td><button (click)="delete(1009)">X</button></td>
+        <td (click)="selectClient()">{{clientInfos.ClientNumber}} </td>
+        <td (click)="selectClient()"> {{clientInfos.ClientName}}</td>
+        <td><button (click)="delete(clientInfos) ">Suprimer</button></td>
 
     </tr>
 
