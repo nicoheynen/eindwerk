@@ -2,22 +2,45 @@
     <ul>
         <li>
             N° client:
-            <input type="text" name="id" class="field-style field-full align-none " [(ngModel)]="clientInfo.id" placeholder="N° client"></li>
+            <input type="text" name="id" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientNumber" placeholder="N° client" #newClientNumber></li>
 
         <li>
             Nom:
-            <input type="text" name="clientName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientName" placeholder="Nom"></li>
+            <input type="text" name="clientName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientName" placeholder="Nom" #newClientName></li>
         <li>Rue:
-            <input type="text" name="clientStreetName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientStreetName" placeholder="Rue"></li>
+            <input type="text" name="clientStreetName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientStreetName" placeholder="Rue" #newClientStreetName></li>
         <li>N°
-            <input type="text" name="clientHouseNumber" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientHouseNumber" placeholder="N°"></li>
+            <input type="text" name="clientHouseNumber" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientHouseNumber" placeholder="N°" #newClientHouseNumber></li>
         <li>Code Postal:
-            <input type="text" name="clientPostalCode" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientPostalCode" placeholder="Code postal"></li>
+            <input type="text" name="clientPostalCode" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientPostalCode" placeholder="Code postal" #newClientPostalCode></li>
         <li>Commune
-            <input type="text" name="clientCity" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientCity" placeholder="Commune"></li>
+            <input type="text" name="clientCity" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientCity" placeholder="Commune" #newClientCity></li>
         <li>
             TVA:
-            <input type="text" name="tvaClient" class="field-style field-full align-none " [(ngModel)]="clientInfo.tvaClient" placeholder="TVA"></li>
+            <input type="text" name="tvaClient" class="field-style field-full align-none " [(ngModel)]="clientInfo.tvaClient" placeholder="TVA" #newTvaClient></li>
 
     </ul>
+
+
+    <input type="submit" (click)="addClient(
+        newClientNumber.value,
+        newClientName.value, 
+        newClientStreetName.value, 
+        newClientHouseNumber.value,
+        newClientPostalCode.value,
+        newClientCity.value,
+        newTvaClient.value)
+        " value="Sauvgarder">
+
 </form>
+
+<div class="form-style-9 ">
+
+    <tr class="clientInfoList" *ngFor="let clientInfos of clientInfo">
+        <td>{{clientInfos.ClientNumber}}</td>
+        <td>{{clientInfos.ClientName}}</td>
+        <td><button (click)="delete(1009)">X</button></td>
+
+    </tr>
+
+</div>

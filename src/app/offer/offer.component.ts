@@ -17,32 +17,46 @@ import { GeneralOfferInfo } from "app/gen-offer-info/general-offer-info";
 })
 export class OfferComponent implements OnInit {
 
-products: Products;
-userCompanyInfos: UserCompanyInfo;
-clientInfos: ClientInfo;
-generalInfo: GeneralOfferInfo;
+  products: Products;
+  userCompanyInfos: UserCompanyInfo;
 
+  generalInfo: GeneralOfferInfo;
 
-constructor(private userCompanyInfoService:UserCompanyInfoService, 
-private clientInfoService:ClientInfoService,
-private productsService:ProductsService,
-private generalOfferInfoService: GeneralOfferInfoService ) { }
+  clientInfo = <ClientInfo[]>Array();
+  errorMessage: string;
+  mode = 'Observable';
+  constructor(private userCompanyInfoService: UserCompanyInfoService,
+    private clientInfoService: ClientInfoService,
+    private productsService: ProductsService,
+    private generalOfferInfoService: GeneralOfferInfoService) { }
 
-ngOnInit(): void {
-      this.userCompanyInfos = this.userCompanyInfoService.getUserCompanyInfos()
-      this.clientInfos = this.clientInfoService.getClientInfos();
-      this.products = this.productsService.getProcuts();
-      this.generalInfo = this.generalOfferInfoService.getGeneralInfo();
+  ngOnInit(): void {
+    this.userCompanyInfos = this.userCompanyInfoService.getUserCompanyInfos()
+    this.getClientInfos();
+    this.products = this.productsService.getProcuts();
+    this.generalInfo = this.generalOfferInfoService.getGeneralInfo();
 
   }
+
+  getClientInfos() {
+    this.clientInfoService.getClientInfos()
+      .subscribe(
+      clientInfo => {
+        console.log('0001', clientInfo);
+        this.clientInfo = clientInfo;
+      },
+      error => this.errorMessage = <any>error);
+  }
+
+
 
     private hideElement: boolean = false;
     private hideElement2: boolean = true;
 
-    toggleElement(){
-       this.hideElement = !this.hideElement;
-       this.hideElement2 = !this.hideElement2;
-    }
+toggleElement(){
+  this.hideElement = !this.hideElement;
+  this.hideElement2 = !this.hideElement2;
+}
 
 
 print(){

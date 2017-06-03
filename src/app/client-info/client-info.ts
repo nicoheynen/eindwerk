@@ -4,7 +4,6 @@ clientStreetName: any;
 clientHouseNumber: any;
 clientPostalCode: any;
 clientCity: any;
-id: any;
+clientNumber: any;
 tvaClient: any;
-
 }
