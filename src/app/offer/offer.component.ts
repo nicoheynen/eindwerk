@@ -22,7 +22,7 @@ export class OfferComponent implements OnInit {
 
   generalInfo: GeneralOfferInfo;
 
-  clientInfo = <ClientInfo[]>Array();
+  clientInfo: ClientInfo;
   errorMessage: string;
   mode = 'Observable';
   constructor(private userCompanyInfoService: UserCompanyInfoService,
@@ -32,21 +32,13 @@ export class OfferComponent implements OnInit {
 
   ngOnInit(): void {
     this.userCompanyInfos = this.userCompanyInfoService.getUserCompanyInfos()
-    this.getClientInfos();
+    this.clientInfo = this.clientInfoService.getSelectedClientInfo();
     this.products = this.productsService.getProcuts();
     this.generalInfo = this.generalOfferInfoService.getGeneralInfo();
 
   }
 
-  getClientInfos() {
-    this.clientInfoService.getClientInfos()
-      .subscribe(
-      clientInfo => {
-        console.log('0001', clientInfo);
-        this.clientInfo = clientInfo;
-      },
-      error => this.errorMessage = <any>error);
-  }
+  
 
 
 

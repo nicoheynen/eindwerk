@@ -1,23 +1,24 @@
-<form class="form-style-9 ">
+<form class="form-style-9 " style="float:right">
+
     <ul>
         <li>
             N° client:
-            <input type="text" name="id" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientNumber" placeholder="N° client" #newClientNumber></li>
+            <input type="text" name="id" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientNumber" placeholder="N° client" #newClientNumber></li>
 
         <li>
             Nom:
-            <input type="text" name="clientName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientName" placeholder="Nom" #newClientName></li>
+            <input type="text" name="clientName" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientName" placeholder="Nom" #newClientName></li>
         <li>Rue:
-            <input type="text" name="clientStreetName" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientStreetName" placeholder="Rue" #newClientStreetName></li>
+            <input type="text" name="clientStreetName" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientStreetName" placeholder="Rue" #newClientStreetName></li>
         <li>N°
-            <input type="text" name="clientHouseNumber" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientHouseNumber" placeholder="N°" #newClientHouseNumber></li>
+            <input type="text" name="clientHouseNumber" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientHouseNumber" placeholder="N°" #newClientHouseNumber></li>
         <li>Code Postal:
-            <input type="text" name="clientPostalCode" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientPostalCode" placeholder="Code postal" #newClientPostalCode></li>
+            <input type="text" name="clientPostalCode" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientPostalCode" placeholder="Code postal" #newClientPostalCode></li>
         <li>Commune
-            <input type="text" name="clientCity" class="field-style field-full align-none " [(ngModel)]="clientInfo.clientCity" placeholder="Commune" #newClientCity></li>
+            <input type="text" name="clientCity" class="field-style field-full align-none " [(ngModel)]="selectedClient.clientCity" placeholder="Commune" #newClientCity></li>
         <li>
             TVA:
-            <input type="text" name="tvaClient" class="field-style field-full align-none " [(ngModel)]="clientInfo.tvaClient" placeholder="TVA" #newTvaClient></li>
+            <input type="text" name="tvaClient" class="field-style field-full align-none " [(ngModel)]="selectedClient.tvaClient" placeholder="TVA" #newTvaClient></li>
 
     </ul>
 
@@ -34,13 +35,13 @@
 
 </form>
 
-<div class="form-style-9 ">
+<div class="form-style-9 " style="float: left">
 
-    <tr class="clientInfoList" *ngFor="let clientInfos of clientInfo">
-        <td (click)="selectClient()">{{clientInfos.ClientNumber}} </td>
-        <td (click)="selectClient()"> {{clientInfos.ClientName}}</td>
-        <td><button (click)="delete(clientInfos) ">Suprimer</button></td>
+    <ul class="clientInfoList" *ngFor="let clientInfos of clientInfo">
+        <li (click)="selectClient(clientInfos)">{{clientInfos.ClientNumber}} {{clientInfos.ClientName}}
+            <button (click)="delete(clientInfos)" style="float : right">Suprimer</button></li>
 
-    </tr>
+
+    </ul>
 
 </div>

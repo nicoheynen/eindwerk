@@ -5,11 +5,22 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { ClientInfo } from "app/client-info/client-info";
+import { CLIENTINFO } from "app/client-info/mock-client-info";
 
 @Injectable()
 export class ClientInfoService {
+
+
+
+
   private clientInfoUrl = 'http://localhost:50317/api/';  // URL to web API
   constructor(private http: Http) { }
+
+
+getSelectedClientInfo(): ClientInfo{
+    return CLIENTINFO;
+
+  }
 
   getClientInfos(): Observable<ClientInfo[]> {
     return this.http.get(this.clientInfoUrl+'ClientInfo')

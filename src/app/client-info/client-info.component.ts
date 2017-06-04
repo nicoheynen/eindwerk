@@ -15,7 +15,7 @@ export class ClientInfoComponent implements OnInit {
   clientInfo = <ClientInfo[]>Array();
   //newClientInfo = new ClientInfo;
   //clientInfoDelete: ClientInfo;
-
+  selectedClient: ClientInfo;
 
 
 
@@ -25,6 +25,7 @@ export class ClientInfoComponent implements OnInit {
 
   ngOnInit() {
     this.getClientInfos();
+    this.selectedClient = this.clientInfoService.getSelectedClientInfo();
   }
 
 
@@ -53,31 +54,37 @@ export class ClientInfoComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
 
- // delete(id: number) {
-   // this.clientInfoService.delete(id)
-     //.subscribe(
-//clientInfo => this.clientInfo.splice(id, 1),
+  // delete(id: number) {
+  // this.clientInfoService.delete(id)
+  //.subscribe(
+  //clientInfo => this.clientInfo.splice(id, 1),
   //    error => this.errorMessage = <any>error);
-      
+
   //}
-   delete(clientInfo) {
+  delete(clientInfo) {
     if (confirm("Are you sure you want to delete " + clientInfo.ClientName + "?")) {
       this.clientInfoService.delete(clientInfo.Id).subscribe(
-         data => {
-           // refresh the list
-           this.getClientInfos();
-           return true;
-         },
-         error => this.errorMessage = <any>error);
+        data => {
+          // refresh the list
+          this.getClientInfos();
+          return true;
+        },
+        error => this.errorMessage = <any>error);
     }
-   }
+  }
 
 
-   selectClient()
-   {
-     console.log("select client test");
-   }
-  
+  selectClient(clientInfo) {
+    this.selectedClient.clientName = clientInfo.ClientName;
+    this.selectedClient.clientStreetName = clientInfo.ClientStreetName;
+    this.selectedClient.clientHouseNumber = clientInfo.ClientHouseNumber;
+    this.selectedClient.clientPostalCode = clientInfo.ClientPostalCode;
+    this.selectedClient.clientCity = clientInfo.ClientCity;
+    this.selectedClient.clientNumber = clientInfo.ClientNumber;
+    this.selectedClient.tvaClient = clientInfo.TvaClient;
+
+  }
+
 
 
 }
