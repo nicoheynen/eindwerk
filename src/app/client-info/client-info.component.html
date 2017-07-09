@@ -33,11 +33,22 @@
         newTvaClient.value)
         " value="Sauvgarder">
 
+    <input type="submit" (click)="updateClient(
+        newClientNumber.value,
+        newClientName.value, 
+        newClientStreetName.value, 
+        newClientHouseNumber.value,
+        newClientPostalCode.value,
+        newClientCity.value,
+        newTvaClient.value)
+        " value="Modifier">
+
+
 </form>
 
 <div class="form-style-9 " style="float: left">
-
-    <ul class="clientInfoList" *ngFor="let clientInfos of clientInfo">
+    <input [(ngModel)]="query" placeholder="Search">
+    <ul class="clientInfoList" *ngFor="let clientInfos of clientInfo | searchPipe: query | slice:0:19">
         <li (click)="selectClient(clientInfos)">{{clientInfos.ClientNumber}} {{clientInfos.ClientName}}
             <button (click)="delete(clientInfos)" style="float : right">Suprimer</button></li>
 

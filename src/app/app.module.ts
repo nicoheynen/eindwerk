@@ -11,7 +11,7 @@ import {Autosize} from 'angular2-autosize/angular2-autosize';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { UserCompanyInfoComponent } from './user-company-info/user-company-info.component';
 import { UserCompanyInfoService } from "app/user-company-info/user-company-info.service";
-import { ClientInfoComponent } from './client-info/client-info.component';
+import { ClientInfoComponent, SearchPipe } from './client-info/client-info.component';
 import { ProductsComponent } from './products/products.component';
 
 import { RouterModule }   from '@angular/router';
@@ -21,6 +21,7 @@ import { ProductsService } from "app/products/products.service";
 import { AppRoutingModule } from "app/app-routing.module";
 import { GenOfferInfoComponent } from './gen-offer-info/gen-offer-info.component';
 import { GeneralOfferInfoService } from "app/gen-offer-info/general-offer-info.service";
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -35,7 +36,9 @@ import { GeneralOfferInfoService } from "app/gen-offer-info/general-offer-info.s
     ClientInfoComponent,
     ProductsComponent,
     OfferDashboardComponent,
-    GenOfferInfoComponent
+    GenOfferInfoComponent,
+    LoginComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

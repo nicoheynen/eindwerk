@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe, PipeTransform, Injectable } from '@angular/core';
 import { ClientInfo } from "app/client-info/client-info";
 import { ClientInfoService } from "app/client-info/client-info.service";
 
@@ -17,7 +17,7 @@ export class ClientInfoComponent implements OnInit {
   //clientInfoDelete: ClientInfo;
   selectedClient: ClientInfo;
 
-
+  selectId: any;
 
 
 
@@ -26,6 +26,7 @@ export class ClientInfoComponent implements OnInit {
   ngOnInit() {
     this.getClientInfos();
     this.selectedClient = this.clientInfoService.getSelectedClientInfo();
+    
   }
 
 
@@ -54,6 +55,25 @@ export class ClientInfoComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
 
+  updateClient(clientNumber: any,
+    clientName: any,
+    clientStreetName: any,
+    clientHouseNumber: any,
+    clientPostalCode: any,
+    clientCity: any,
+    tvaClient: any) {
+    if (!this.selectId) { return; }
+    this.clientInfoService.update(this.selectId, clientNumber, clientName, clientStreetName, clientHouseNumber, clientPostalCode, clientCity, tvaClient)
+      .subscribe(
+
+      data => {
+        // refresh the list
+        this.getClientInfos();
+        return true;
+      },
+      error => this.errorMessage = <any>error);
+  }
+
   // delete(id: number) {
   // this.clientInfoService.delete(id)
   //.subscribe(
@@ -62,7 +82,7 @@ export class ClientInfoComponent implements OnInit {
 
   //}
   delete(clientInfo) {
-    if (confirm("Are you sure you want to delete " + clientInfo.ClientName + "?")) {
+    if (confirm("Suprimer " + clientInfo.ClientName + "?")) {
       this.clientInfoService.delete(clientInfo.Id).subscribe(
         data => {
           // refresh the list
@@ -75,6 +95,7 @@ export class ClientInfoComponent implements OnInit {
 
 
   selectClient(clientInfo) {
+    this.selectId = clientInfo.Id;
     this.selectedClient.clientName = clientInfo.ClientName;
     this.selectedClient.clientStreetName = clientInfo.ClientStreetName;
     this.selectedClient.clientHouseNumber = clientInfo.ClientHouseNumber;
@@ -87,4 +108,34 @@ export class ClientInfoComponent implements OnInit {
 
 
 
+}
+
+@Pipe({
+  name: 'searchPipe',
+  pure: false
+})
+
+export class SearchPipe implements PipeTransform {
+  transform(items:any[], args:any):any[] {
+		var isSearch = (data:any): boolean => {
+			var isAll = false;
+			if(typeof data === 'object' ){
+				for (var z in data) {
+					if(isAll = isSearch(data[z]) ){
+						break;
+					}
+				}
+			} else {
+				if(typeof args === 'number'){
+					isAll = data === args;
+				} else {
+					isAll = data.toString().match( new RegExp(args, 'i') );
+				}
+			} 
+
+			return isAll;
+		};
+
+		return items.filter(isSearch);
+	}
 }

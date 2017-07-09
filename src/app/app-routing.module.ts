@@ -7,6 +7,7 @@ import { OfferDashboardComponent } from "app/offer-dashboard/offer-dashboard.com
 import { OfferComponent } from "app/offer/offer.component";
 import { AppComponent } from "app/app.component";
 import { GenOfferInfoComponent } from "app/gen-offer-info/gen-offer-info.component";
+import { LoginComponent } from "app/login/login.component";
 
 const routes: Routes = [
   {
@@ -37,9 +38,13 @@ const routes: Routes = [
       path: 'generalOfferInfo',
       component: GenOfferInfoComponent
   },
+    {
+      path: 'login',
+      component: LoginComponent
+  },
   {
       path: '',
-      redirectTo: '/offer',
+      redirectTo: '/login',
       pathMatch: 'full'
   }
 ];

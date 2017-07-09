@@ -43,6 +43,22 @@ tvaClient: any): Observable<ClientInfo> {
                     .catch(this.handleError);
   }
 
+  update(id: any,
+    clientNumber: any,
+clientName: any,
+clientStreetName: any,
+clientHouseNumber: any,
+clientPostalCode: any,
+clientCity: any,
+tvaClient: any): Observable<ClientInfo> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.put(this.clientInfoUrl+'ClientInfo/' + id, {id, clientNumber, clientName , clientStreetName, clientHouseNumber, clientPostalCode, clientCity, tvaClient }, options)
+                    .map(clientInfo=>clientInfo.json())
+                    .catch(this.handleError);
+  }
+
  // delete(id: number): Observable<ClientInfo> {
    //     var headers = new Headers();  
      //   headers.append('Content-Type', 'application/json; charset=utf-8');  
