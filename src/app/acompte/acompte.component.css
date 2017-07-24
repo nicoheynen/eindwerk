@@ -87,11 +87,13 @@ h1 {
 
 .offerGoal,
 .descArea,
+.acompteArea,
 .noticeArea {
     width: 100%;
     background: transparent;
     border: 0 none;
     resize: none;
+    text-align: left;
 }
 
 .offerGoal:hover,

@@ -1,11 +1,19 @@
 <nav class="no-print">
+    <a id="portefeuille" [routerLink]="['/portefeuille']" routerLinkActive="active">Portefeuille</a>
+    <a [routerLink]="['/offer']" routerLinkActive="active">Devis</a>
+    <a [routerLink]="['/facture']" routerLinkActive="active">Facture</a>
+    <a [routerLink]="['/acompte']" routerLinkActive="active">Acompte</a>
+
+
+</nav>
+<nav class="no-print">
 
     <a routerLink="/userCompanyInfo" routerLinkActive="active">Mes données</a>
     <a routerLink="/clientInfo" routerLinkActive="active">Données du client</a>
     <a routerLink="/products" routerLinkActive="active">Désignation</a>
     <a [routerLink]="['/generalOfferInfo']" routerLinkActive="active">Info general</a>
-    <a [routerLink]="['/offer']" routerLinkActive="active">Aperçu du devis</a>
 
 </nav>
+
 
 <router-outlet></router-outlet>

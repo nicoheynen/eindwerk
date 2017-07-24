@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Pipe, PipeTransform, Injectable } from '@angu
 import { ClientInfo } from "app/client-info/client-info";
 import { ClientInfoService } from "app/client-info/client-info.service";
 
+
 @Component({
   selector: 'app-client-info',
   templateUrl: './client-info.component.html',
@@ -9,17 +10,11 @@ import { ClientInfoService } from "app/client-info/client-info.service";
 })
 export class ClientInfoComponent implements OnInit {
 
-  //clientInfo: ClientInfo[];
   errorMessage: string;
   mode = 'Observable';
   clientInfo = <ClientInfo[]>Array();
-  //newClientInfo = new ClientInfo;
-  //clientInfoDelete: ClientInfo;
   selectedClient: ClientInfo;
-
   selectId: any;
-
-
 
   constructor(private clientInfoService: ClientInfoService) { }
 
@@ -28,7 +23,6 @@ export class ClientInfoComponent implements OnInit {
     this.selectedClient = this.clientInfoService.getSelectedClientInfo();
     
   }
-
 
   getClientInfos() {
 

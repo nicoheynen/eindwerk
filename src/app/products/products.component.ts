@@ -24,6 +24,15 @@ export class ProductsComponent implements OnInit {
 
 
   addProduct(){
+this.products.productsData.push({
+      "productQuantity":  this.products.productQuantity,
+      "unitType": this.products.unitType,
+      "productDescription":this.products.productDescription,
+      "flateRate": this.products.flateRate,
+      "unitPrice": this.products.unitPrice,
+});
+
+
 if(this.products.flateRate == true)
 {
 this.products.productQuantity = 1;

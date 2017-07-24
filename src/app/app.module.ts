@@ -22,6 +22,10 @@ import { AppRoutingModule } from "app/app-routing.module";
 import { GenOfferInfoComponent } from './gen-offer-info/gen-offer-info.component';
 import { GeneralOfferInfoService } from "app/gen-offer-info/general-offer-info.service";
 import { LoginComponent } from './login/login.component';
+import { AcompteComponent } from './acompte/acompte.component';
+import { FactureComponent } from './facture/facture.component';
+import { AuthGuardService } from "app/auth-guard.service";
+import { PortefeuilleComponent } from './portefeuille/portefeuille.component';
 
 
 
@@ -38,7 +42,10 @@ import { LoginComponent } from './login/login.component';
     OfferDashboardComponent,
     GenOfferInfoComponent,
     LoginComponent,
-    SearchPipe
+    SearchPipe,
+    AcompteComponent,
+    FactureComponent,
+    PortefeuilleComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     CommonModule
   ],
-    providers: [UserCompanyInfoService, ClientInfoService, ProductsService, GeneralOfferInfoService],
+    providers: [UserCompanyInfoService, ClientInfoService, ProductsService, GeneralOfferInfoService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

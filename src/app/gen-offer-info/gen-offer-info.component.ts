@@ -9,13 +9,13 @@ import { GeneralOfferInfo } from "app/gen-offer-info/general-offer-info";
 })
 export class GenOfferInfoComponent implements OnInit {
 
-@Input()generalInfo: GeneralOfferInfo ;
+generalInfo: GeneralOfferInfo ;
 
   constructor(private generalOfferInfoService: GeneralOfferInfoService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.generalInfo = this.generalOfferInfoService.getGeneralInfo();
 
   }
-
+  
 }

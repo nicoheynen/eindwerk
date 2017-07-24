@@ -1,4 +1,5 @@
 import { ClientInfo } from "app/client-info/client-info";
+import { GeneralOfferInfo } from "app/gen-offer-info/general-offer-info";
 
 export const CLIENTINFO: ClientInfo = {
     
@@ -9,5 +10,6 @@ export const CLIENTINFO: ClientInfo = {
     clientCity: '',
     clientNumber: '',
     tvaClient: '',
+    generalOfferInfos: <GeneralOfferInfo[]> Array()
 
 }

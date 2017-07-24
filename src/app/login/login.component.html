@@ -1,6 +1,5 @@
-<form>
-    Login:
-    <input type="text"> Mot de passe:
-    <input type="password">
-    <input type="button">
+<form class="form-style-9 ">
+    <div>Nom:
+        <input size="10" type="text" name="name" [(ngModel)]="name"> Mot de passe:<input size="10" type="password" name="pass" [(ngModel)]="pass">
+        <button (click)="toggleLoggedIn()">Log in</button></div>
 </form>

@@ -10,21 +10,50 @@ import { UserCompanyInfoService } from "app/user-company-info/user-company-info.
 })
 export class UserCompanyInfoComponent implements OnInit {
 
- @Input() userCompanyInfo: UserCompanyInfo;
+  userCompanyInfo: UserCompanyInfo;
 
- 
-  constructor(private userCompanyInfoService:UserCompanyInfoService ) { }
+  @Input() savedUserCompanyInfo: UserCompanyInfo;
+
+  
+  //errorMessage: string;
+  // mode = 'Observable';
+
+
+  constructor(private userCompanyInfoService: UserCompanyInfoService) { }
 
 
   ngOnInit() {
+
+   
     this.userCompanyInfo = this.userCompanyInfoService.getUserCompanyInfos();
+ //this.getSavedUserCompanyInfos();
+    
+    
+
   }
-  
+
+
 
   selected(imageResult: ImageResult) {
-     this.userCompanyInfo.src = imageResult.resized
-            && imageResult.resized.dataURL
-            || imageResult.dataURL;
-    }
+    this.userCompanyInfo.src = imageResult.resized
+      && imageResult.resized.dataURL
+      || imageResult.dataURL;
+  }
+
+
+/*
+  getSavedUserCompanyInfos() {
+
+    this.userCompanyInfoService.getSavedUserCompanyInfos()
+      .subscribe(
+      savedUserCompanyInfo => {
+        console.log('0001', savedUserCompanyInfo);
+        this.savedUserCompanyInfo = savedUserCompanyInfo;
+        this.userCompanyInfo.companyName = savedUserCompanyInfo.companyName;
+      },
+      error => this.errorMessage = <any>error);
+  }*/
+
+
 
 }

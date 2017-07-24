@@ -12,6 +12,10 @@ nav a {
     border-radius: 4px;
 }
 
+#portefeuille {
+    margin-right: 50px;
+}
+
 nav a:visited,
 a:link {
     color: #607D8B;

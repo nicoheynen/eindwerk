@@ -12,7 +12,6 @@ export class ClientInfoService {
 
 
 
-
   private clientInfoUrl = 'http://localhost:50317/api/';  // URL to web API
   constructor(private http: Http) { }
 
@@ -88,6 +87,7 @@ tvaClient: any): Observable<ClientInfo> {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+  
 
 
 }

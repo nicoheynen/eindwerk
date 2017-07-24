@@ -8,50 +8,71 @@ import { OfferComponent } from "app/offer/offer.component";
 import { AppComponent } from "app/app.component";
 import { GenOfferInfoComponent } from "app/gen-offer-info/gen-offer-info.component";
 import { LoginComponent } from "app/login/login.component";
+import { AcompteComponent } from "app/acompte/acompte.component";
+import { FactureComponent } from "app/facture/facture.component";
+import { AuthGuardService } from "app/auth-guard.service";
+import { PortefeuilleComponent } from "app/portefeuille/portefeuille.component";
 
 const routes: Routes = [
   {
     path: 'userCompanyInfo',
-    component: UserCompanyInfoComponent
+    component: UserCompanyInfoComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'clientInfo',
-    component: ClientInfoComponent
+    component: ClientInfoComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [AuthGuardService]
   },
   {
-      path: 'offerDashboard',
-      component: OfferDashboardComponent
+    path: 'offerDashboard',
+    component: OfferDashboardComponent,
+    canActivate: [AuthGuardService]
   },
   {
-      path: 'offer',
-      component: OfferComponent
-  },
-   {
-      path: 'app',
-      component: AppComponent
+    path: 'offer',
+    component: OfferComponent,
+    canActivate: [AuthGuardService]
+  }, 
+  {
+    path: 'acompte',
+    component: AcompteComponent,
+    canActivate: [AuthGuardService]
+  }, 
+  {
+    path: 'facture',
+    component: FactureComponent,
+    canActivate: [AuthGuardService]
   },
   {
-      path: 'generalOfferInfo',
-      component: GenOfferInfoComponent
-  },
-    {
-      path: 'login',
-      component: LoginComponent
+    path: 'generalOfferInfo',
+    component: GenOfferInfoComponent,
+    canActivate: [AuthGuardService]
   },
   {
-      path: '',
-      redirectTo: '/login',
-      pathMatch: 'full'
+    path: 'portefeuille',
+    component: PortefeuilleComponent
+
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: []
+    providers: [AuthGuardService]
 })
 export class AppRoutingModule { }

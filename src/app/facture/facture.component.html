@@ -1,0 +1,79 @@
+<button (click)="print()" class="no-print">print</button>
+
+<body>
+    <header class="clearfix">
+
+        <h1>FACTURE</h1>
+
+        <div id="logo">
+            <img [src]="userCompanyInfos.src">
+
+        </div>
+
+        <div id="company" class="clearfix">
+            <div class="streetNumberArea">{{userCompanyInfos.streetName}} {{userCompanyInfos.houseNumber}}</div>
+            <div class="postalCodeCityArea">{{userCompanyInfos.postalCode}} {{userCompanyInfos.city}}</div>
+            <div class="phoneNumberArea">GSM: {{userCompanyInfos.phoneNumber}}</div>
+            <div class="mailArea">{{userCompanyInfos.mail}}</div>
+        </div>
+        <div id="reference">
+            <div>Date: {{generalInfo.date}} </div>
+            <div>Référence: {{generalInfo.factureReference}} </div>
+            <div>N° client: {{clientInfo.clientNumber}}</div>
+        </div>
+        <div id="project">
+
+            <div class="clientNameArea">{{clientInfo.clientName}}</div>
+            <div class="clientStreetNumberArea">{{clientInfo.clientStreetName}} {{clientInfo.ClientHouseNumber}}</div>
+            <div class="clientPostalCodeCityArea">{{clientInfo.clientPostalCode}} {{clientInfo.ClientCity}}</div>
+            <div class="tvaClient">TVA: {{clientInfo.tvaClient}}</div>
+        </div>
+
+    </header>
+    <main>
+        <textarea class="offerGoal" autosize rows="1" [(ngModel)]="generalInfo.factureGoal"></textarea>
+        <table>
+
+            <thead>
+                <tr>
+                    <th class="desc">Désignation</th>
+                    <th class="qty">Quantité</th>
+                    <th class="unitType">Unité</th>
+                    <th class="unit">Prix unitaire HT</th>
+                    <th class="total">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="products" *ngFor="let product of products.productObjects">
+                    <td class="desc"><textarea class="descArea" autosize rows="1" [(ngModel)]="product.description"></textarea></td>
+                    <td class="qty">{{product.quantity}}</td>
+                    <td class="unitType">{{product.unitType}}</td>
+                    <td class="unit">{{product.unitPrice | number : '1.2-2'}} €</td>
+                    <td class="total">{{product.price | number : '1.2-2'}} €</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Total HTVA</td>
+                    <td class="grand">{{products.toPayNoTva | number : '1.2-2'}} €</td>
+                </tr>
+                <tr>
+                    <td colspan="4">TVA {{generalInfo.taxPercent}}%</td>
+                    <td class="grand">{{products.toPay - products.toPayNoTva | number : '1.2-2'}} €</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;">TOTAL TVAC</td>
+                    <td class="grand" style="font-weight: bold;">{{products.toPay| number : '1.2-2'}} €</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+    <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice"><textarea class="noticeArea" autosize [(ngModel)]="generalInfo.notice" rows="1"></textarea></div>
+    </div>
+    <footer class="footerPrint">
+        <div>{{userCompanyInfos.companyName}}</div>
+        <div>TVA: {{userCompanyInfos.vat}}<br> IBAN: {{userCompanyInfos.iban}}</div>
+    </footer>
+
+</body>

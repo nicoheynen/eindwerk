@@ -6,12 +6,16 @@
 
         <li> Date: <input type="text" name="date" class="field-style field-full align-none " [(ngModel)]="generalInfo.date" placeholder="Date">
         </li>
-        <li> Référence: <input type="text" name="reference" class="field-style field-full align-none " [(ngModel)]="generalInfo.reference" placeholder="Référence">
+        <li> Référence devis: <input type="text" name="reference" class="field-style field-full align-none " [(ngModel)]="generalInfo.reference" placeholder="Référence devis">
         </li>
-        <li>But du devis:
-            <textarea name="offerGoal" autosize [(ngModel)]="generalInfo.offerGoal" class="field-style field-full align-none " placeholder="But du devis"> </textarea></li>
+        <li> Référence facture: <input type="text" name="factureReference" class="field-style field-full align-none " [(ngModel)]="generalInfo.factureReference" placeholder="Référence facture">
+        </li>
+        <li>Titre du devis:
+            <textarea name="offerGoal" autosize [(ngModel)]="generalInfo.offerGoal" class="field-style field-full align-none " placeholder="Titre du devis"> </textarea></li>
+        <li>Titre de la facture:
+            <textarea name="factureGoal" autosize [(ngModel)]="generalInfo.factureGoal" class="field-style field-full align-none " placeholder="Titre de la facture"> </textarea></li>
 
-        <li>
+        <li>Notice:
             <textarea name="notice " autosize class="field-style " [(ngModel)]="generalInfo.notice " placeholder="Notice "> </textarea>
         </li>
     </ul>

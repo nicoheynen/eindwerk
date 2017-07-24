@@ -10,7 +10,7 @@ unitType: "m²",
 productPrice: 0,
 productObjects: <any[]> Array(),
 
-
+productsData: <any[]> Array(),
 toPayNoTva: 0,
 toPay: 0
 };
